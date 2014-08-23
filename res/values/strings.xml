@@ -4,5 +4,13 @@
     <string name="app_name">TipCalc</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="totalBill">כמה יצא?</string>
+    <string name="plusPpl">עוד אחד</string>
+    <string name="minusPpl">פחות אחד</string>
+    <string name='totalPerOne'>סה&quot;כ לסועד</string>
+    <string name="totalPay">סה&quot;כ לתשלום</string>
+    <string name="totalTip">סה&quot;כ טיפ</string>
+    <string name="howManyPpl">כמה אנשים?</string>
+    <string name="howMuchTip">כמה אחוז טיפ?</string>
 
 </resources>
