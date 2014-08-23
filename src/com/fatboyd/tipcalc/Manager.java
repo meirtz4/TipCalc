@@ -91,7 +91,7 @@ public class Manager extends Activity {
 			public void onClick(View v) {
 				try {
 					int current = Integer.valueOf(etPercent.getText().toString());
-					if (current>0)
+					if (current>1)
 						etPercent.setText("" +(current-1));
 				} catch (Exception e) {}
 			}
