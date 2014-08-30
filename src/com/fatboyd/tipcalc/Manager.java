@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -60,6 +63,9 @@ public class Manager extends Activity {
 		percentUp = (ImageButton) findViewById(R.id.bplustip);
 		percentDown = (ImageButton) findViewById(R.id.bminustip);
 
+
+		setupUI(findViewById(R.id.parent));
+
 		pplUp.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -98,8 +104,23 @@ public class Manager extends Activity {
 		});
 	}
 
+	public void setupUI(View view) {
+		//Set up touch listener for non-text box views to hide keyboard.
+		if(!(view instanceof EditText)) {
+			view.setOnTouchListener(new OnTouchListener() {
+				@Override
+				public boolean onTouch(View v, MotionEvent event) {
+					hideSoftKeyboard(Manager.this);
+					return false;
+				}
+			});
+		}
+	}
 
-
+	public static void hideSoftKeyboard(Activity activity) {
+		InputMethodManager inputMethodManager = (InputMethodManager)  activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+		inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+	}
 
 	private class Calc extends Thread {
 
@@ -141,13 +162,13 @@ public class Manager extends Activity {
 					onePpl = (int) (tempDouble / ppl);
 					totalTip = totalBill-bill;
 
-					if (totalBill<10 || totalBill>9999999)
+					if (totalBill<1 || totalBill>9999999)
 						continue;
 					if (ppl<1 || ppl>99999)
 						continue;
 					if (percent<1 || percent>99999)
 						continue;
-					if ((totalTip<10) || (totalTip>999999))
+					if ((totalTip<1) || (totalTip>999999))
 						continue;
 
 					runOnUiThread(new Runnable() {  

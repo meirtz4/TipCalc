@@ -27,6 +27,7 @@
         </activity>
                 <activity
             android:name="com.google.ads.AdActivity"
+            android:windowSoftInputMode="adjustPan"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
     </application>
 
