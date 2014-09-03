@@ -29,7 +29,7 @@ public class Manager extends Activity {
 	private EditText etPpl;
 	private EditText etPercent;
 	/* Publisher id for google AdMob */
-	protected static String PUBLISHER_ID = "ca-app-pub-xxxxxxxxxxxxxxxxxxxxx";
+	protected static String PUBLISHER_ID = (Utils.getUtils()).getADMOB_ID();
 
 
 	@Override
@@ -163,13 +163,13 @@ public class Manager extends Activity {
 					totalTip = totalBill-bill;
 
 					if (totalBill<1 || totalBill>9999999)
-						continue;
+						throw new Exception();
 					if (ppl<1 || ppl>99999)
-						continue;
+						throw new Exception();
 					if (percent<1 || percent>99999)
-						continue;
+						throw new Exception();
 					if ((totalTip<1) || (totalTip>999999))
-						continue;
+						throw new Exception();
 
 					runOnUiThread(new Runnable() {  
 						@Override
