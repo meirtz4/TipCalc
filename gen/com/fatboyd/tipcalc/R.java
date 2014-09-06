@@ -29,6 +29,7 @@ public final class R {
         public static final int yloop=0x7f020003;
     }
     public static final class id {
+        public static final int adView=0x7f080011;
         public static final int bill=0x7f080001;
         public static final int bminusppl=0x7f080003;
         public static final int bminustip=0x7f080007;

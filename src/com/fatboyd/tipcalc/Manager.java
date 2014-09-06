@@ -33,6 +33,13 @@ public class Manager extends Activity {
 
 
 	@Override
+	protected void onResume() {
+		super.onResume();
+		layout.removeAllViews();
+		loadAdView();
+	}
+
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_manager);
