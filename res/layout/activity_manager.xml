@@ -94,6 +94,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:background="#FFFFFF"
+            android:imeOptions="actionDone"
             android:ems="10"
             android:inputType="number"
             android:padding="@dimen/activity_horizontal_margin"
